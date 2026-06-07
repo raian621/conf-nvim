@@ -22,7 +22,7 @@ vim.opt.colorcolumn = "80,120"
 vim.opt.autocomplete = true
 vim.opt.completeopt = "fuzzy,menuone,noselect,popup"
 vim.opt.pumheight = 7
-vim.lsp.enable({ 'clangd', 'lua_ls' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'rust_analyzer' })
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
 
