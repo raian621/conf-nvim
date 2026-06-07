@@ -1,5 +1,3 @@
-
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -32,7 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     -- Set up autocomple:
     if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
 
     -- Map 'gd' to symbol definition
@@ -43,10 +41,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Static warning & error messages inline
 vim.diagnostic.config({
-  virtual_text = true,  -- enables inline messages
+  virtual_text = true, -- enables inline messages
   signs = true,
   underline = true,
 })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
 -- Packages
 vim.pack.add({
@@ -100,7 +99,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     -- Set up autocomple:
     if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
 
     -- Map 'gd' to symbol definition
@@ -111,7 +110,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Static warning & error messages inline
 vim.diagnostic.config({
-  virtual_text = true,  -- enables inline messages
+  virtual_text = true, -- enables inline messages
   signs = true,
   underline = true,
 })
@@ -134,4 +133,3 @@ require('plugins.telescope')
 -- Color theme
 vim.opt.termguicolors = true
 vim.cmd('colorscheme gruvbox')
-
